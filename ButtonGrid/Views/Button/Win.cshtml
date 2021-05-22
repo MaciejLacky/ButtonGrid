@@ -1,34 +1,38 @@
 ﻿@model IEnumerable<ButtonGrid.Models.ButtonModel>
 
-
 <style>
-    .game-button{
+    .game-button {
         width: 74px;
         text-align: center;
-        border:none;
+        border: none;
     }
-    .button-zone{
+
+    .button-zone {
         display: flex;
         flex-wrap: wrap;
     }
-    .line-break{
+
+    .line-break {
         flex-basis: 100%;
         height: 0;
     }
-    .button-label{
+
+    .button-label {
         font-size: 8px;
         text-align: center;
     }
-    .game-button-image{
-        width:70%;
+
+    .game-button-image {
+        width: 70%;
     }
-    .text{
+
+    .text {
         margin-left: 20px;
-        color: red;
+        color: yellow;
         font-size: 20px;
     }
 </style>
-@{ 
+@{
     string[] imagenames = { "blue-button.png", "green-button.jpg", "pink-button.jpg", "red-button.jpg", };
 }
 <form>
@@ -49,11 +53,8 @@
                     @Model.ElementAt(i).Id, @Model.ElementAt(i).ButtonState
                 </div>
             </button>
-           
-
-
 
         }
     </div>
-    <div class="text"><p>Nie wygrałeś!! Kilkaj dalej</p></div>
+    <div class="text"><p>Wygrałeś!!!!</p></div>
 </form>

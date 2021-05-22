@@ -29,9 +29,27 @@ namespace ButtonGrid.Controllers
         public IActionResult HandleButtonClick(string buttonNumber)
         {
             int bn = int.Parse(buttonNumber);
-            buttons.ElementAt(bn).ButtonState = (buttons.ElementAt(bn).ButtonState + 1) % 4;
+            int sum = 0;
 
-            return View("Index", buttons);
+            
+            buttons.ElementAt(bn).ButtonState = (buttons.ElementAt(bn).ButtonState + 1) % 4;
+            for (int i = 0; i < GRID_SIZE; i++)
+            {
+                sum += buttons.ElementAt(i).ButtonState;
+            }
+
+            if (sum == 0 || sum == 25 || sum == 50 || sum ==75)
+            {
+                return View("Win", buttons);
+            }
+            else
+            {
+                return View("Index", buttons);
+            }
+
+
+
+
         }
     }
 
